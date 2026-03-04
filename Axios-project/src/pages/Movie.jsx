@@ -23,8 +23,8 @@ export const Movie = () => {
 
     return (
         <div>
-            <ul>
-                <li className="">
+            <ul className="list-none">
+                <li>
                     {data.map((curelem) => {
                         return <Card key={curelem.imdbID} movieData={curelem}  />
                     } )}
