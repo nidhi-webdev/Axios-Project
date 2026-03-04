@@ -11,7 +11,9 @@ export const Movie = () => {
             const res = await axios.get(API)
             setData(res.data.Search)
         } catch (error) {
-            console.log(error);
+            console.log("Error message:", error);
+            console.log("Error Status:", error.response.status);
+            console.log("Error Data:", error.response.data);
         }
     }
 
@@ -26,11 +28,11 @@ export const Movie = () => {
             <ul className="list-none">
                 <li className="grid grid-cols-4">
                     {data.map((curelem) => {
-                        return <Card key={curelem.imdbID} movieData={curelem}  />
-                    } )}
+                        return <Card key={curelem.imdbID} movieData={curelem} />
+                    })}
                 </li>
             </ul>
-            
+
         </div>
     )
 }
