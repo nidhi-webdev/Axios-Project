@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getApi } from "../api/Crud"
+import { TableCard  } from "../components/TableCard"
 
 export const Table = () => {
     const [tableData, setTableData] = useState([])
@@ -7,7 +8,6 @@ export const Table = () => {
 
     const getCurdapi = async () => {
         const res = await getApi()
-        console.log(res.data);
         setTableData(res.data)
 
     }
@@ -22,7 +22,7 @@ export const Table = () => {
     return (
         <div>
             {tableData.map((curelem) => {
-                return <TableCard />
+                return <TableCard key={curelem.id} data={curelem}  />
             })}
         </div>
     )
