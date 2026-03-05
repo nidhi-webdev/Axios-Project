@@ -1,13 +1,15 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getApi } from "../api/Crud"
 
 export const Table = () => {
+    const [tableData, setTableData] = useState([])
 
 
     const getCurdapi = async () => {
         const res = await getApi()
         console.log(res.data);
-        
+        setTableData(res.data)
+
     }
 
 
@@ -17,5 +19,11 @@ export const Table = () => {
     }, [])
 
 
-    return
+    return (
+        <div>
+            {tableData.map((curelem) => {
+                return <TableCard />
+            })}
+        </div>
+    )
 }
