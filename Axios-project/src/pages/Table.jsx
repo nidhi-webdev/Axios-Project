@@ -12,8 +12,6 @@ export const Table = () => {
 
     }
 
-
-
     useEffect(() => {
         getCurdapi()
     }, [])
