@@ -16,6 +16,9 @@ export const Table = () => {
             if (res.status === 200) {
                 const newUpdatedData = tableData.filter((curelem) => curelem.id !== id)
                 setTableData(newUpdatedData)
+            } else {
+                console.log("Failed to delete the post", res.status)
+
             }
         } catch (error) {
             console.log(error)
