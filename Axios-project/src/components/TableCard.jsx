@@ -1,7 +1,5 @@
-export const TableCard = ({ data }) => {
+export const TableCard = ({ data, handleDelete }) => {
     const { body, id, title } = data
-
-   
 
     return (
         <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex flex-col gap-3 border border-gray-700">
@@ -16,8 +14,8 @@ export const TableCard = ({ data }) => {
                 <button className="bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2 rounded-md transition-colors font-semibold uppercase tracking-wide text-sm">
                     EDIT
                 </button>
-                <button onClick={() => handleDeleteCard(id)}
-                    className="bg-rose-500 hover:bg-rose-600 text-white px-5 py-2 rounded-md transition-colors font-semibold uppercase tracking-wide text-sm">
+                <button onClick={() => handleDelete(id)}
+                    className="bg-rose-500 hover:bg-rose-600 text-white px-5 py-2 rounded-md transition-colors font-semibold uppercase tracking-wide text-sm cursor-pointer">
                     DELETE
                 </button>
             </div>
