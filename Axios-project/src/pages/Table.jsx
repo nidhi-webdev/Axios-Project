@@ -32,7 +32,7 @@ export const Table = () => {
 
     return (
         <div className="min-h-screen bg-gray-900">
-            <Form />
+            <Form  tableData={tableData} setTableData={setTableData}  />
             <div className="px-10 pb-10">
                 <div className="grid grid-cols-3 gap-6">
                     {tableData.map((curelem) => (

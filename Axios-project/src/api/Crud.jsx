@@ -13,3 +13,8 @@ export const getApi = () => {
 export const deleteApi = (id) => {
   return api.delete(`/posts/${id}`)
 }
+
+// post Method
+export const postApi = () => {
+  return api.post("/posts//")
+}

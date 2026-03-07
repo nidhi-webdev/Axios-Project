@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Form = () => {
+const Form = ({ tableData, setTableData}) => {
+    console.log("Form Component", tableData, setTableData);
+    
     return (
         <div className="bg-gray-900 w-full flex justify-center py-8">
             <form className="flex items-center gap-3">
