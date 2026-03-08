@@ -4,8 +4,21 @@ const Form = ({ tableData, setTableData }) => {
     console.log("Form tableData", tableData)
     console.log("From setTableData", setTableData)
     const [adddata, setAddData] = useState({
-
+        title: "",
+        body: ""
     })
+
+    const handleInputChange = (e) => {
+        const name = e.target.name
+        const value = e.target.value
+
+        setAddData((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
 
     return (
         <div className="bg-gray-900 w-full flex justify-center py-8">
@@ -13,6 +26,7 @@ const Form = ({ tableData, setTableData }) => {
                 <input
                     value={adddata.title}
                     onChange={handleInputChange}
+                    name="title"
                     type="text"
                     placeholder="Add Title"
                     className="bg-white text-gray-800 placeholder-gray-400 px-5 py-3 rounded-md w-64 outline-none text-sm"
@@ -20,6 +34,7 @@ const Form = ({ tableData, setTableData }) => {
                 <input
                     value={adddata.body}
                     onChange={handleInputChange}
+                    name="body"
                     type="text"
                     placeholder="Add Post"
                     className="bg-white text-gray-800 placeholder-gray-400 px-5 py-3 rounded-md w-64 outline-none text-sm"
