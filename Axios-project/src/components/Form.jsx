@@ -1,8 +1,7 @@
 import { useState } from "react"
+import { postApi } from "../api/Crud"
 
 const Form = ({ tableData, setTableData }) => {
-    console.log("Form tableData", tableData)
-    console.log("From setTableData", setTableData)
     const [adddata, setAddData] = useState({
         title: "",
         body: ""
@@ -22,6 +21,10 @@ const Form = ({ tableData, setTableData }) => {
 
     const addPostData = async () => {
        const res =  await postApi(adddata)
+       console.log("res from res", res)
+       if(res.status == 201) {
+        setTableData([...tableData, res.data])
+       }
     }
 
     const handleFormSubmit = (e) => {
