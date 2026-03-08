@@ -15,6 +15,6 @@ export const deleteApi = (id) => {
 }
 
 // post Method
-export const postApi = () => {
-  return api.post("/posts//")
+export const postApi = (FrontendData) => {
+  return api.post("/posts", FrontendData)
 }

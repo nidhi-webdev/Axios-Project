@@ -1,17 +1,25 @@
-import React from 'react'
+import { useState } from "react"
 
-const Form = ({ tableData, setTableData}) => {
-    console.log("Form Component", tableData, setTableData);
-    
+const Form = ({ tableData, setTableData }) => {
+    console.log("Form tableData", tableData)
+    console.log("From setTableData", setTableData)
+    const [adddata, setAddData] = useState({
+
+    })
+
     return (
         <div className="bg-gray-900 w-full flex justify-center py-8">
             <form className="flex items-center gap-3">
                 <input
+                    value={adddata.title}
+                    onChange={handleInputChange}
                     type="text"
                     placeholder="Add Title"
                     className="bg-white text-gray-800 placeholder-gray-400 px-5 py-3 rounded-md w-64 outline-none text-sm"
                 />
                 <input
+                    value={adddata.body}
+                    onChange={handleInputChange}
                     type="text"
                     placeholder="Add Post"
                     className="bg-white text-gray-800 placeholder-gray-400 px-5 py-3 rounded-md w-64 outline-none text-sm"
