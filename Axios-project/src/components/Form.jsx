@@ -20,11 +20,11 @@ const Form = ({ tableData, setTableData }) => {
     }
 
     const addPostData = async () => {
-       const res =  await postApi(adddata)
-       console.log("res from res", res)
-       if(res.status == 201) {
-        setTableData([...tableData, res.data])
-       }
+        const res = await postApi(adddata)
+        console.log("res from res", res)
+        if (res.status == 201) {
+            setTableData([...tableData, res.data])
+        }
     }
 
     const handleFormSubmit = (e) => {
@@ -54,6 +54,8 @@ const Form = ({ tableData, setTableData }) => {
                     placeholder="Add Post"
                     className="bg-white text-gray-800 placeholder-gray-400 px-5 py-3 rounded-md w-64 outline-none text-sm"
                 />
+                <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-md uppercase tracking-wide text-sm transition-colors cursor-pointer">
+               EDIT </button>
                 <button
                     type="submit"
                     className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-md uppercase tracking-wide text-sm transition-colors cursor-pointer"
