@@ -20,9 +20,21 @@ const Form = ({ tableData, setTableData }) => {
         })
     }
 
+    const addPostData = async () => {
+       const res =  await postApi(adddata)
+    }
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault()
+        addPostData()
+    }
+
+
+
     return (
         <div className="bg-gray-900 w-full flex justify-center py-8">
-            <form className="flex items-center gap-3">
+            <form onSubmit={handleFormSubmit}
+                className="flex items-center gap-3">
                 <input
                     value={adddata.title}
                     onChange={handleInputChange}
