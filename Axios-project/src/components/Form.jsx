@@ -55,7 +55,7 @@ const Form = ({ tableData, setTableData }) => {
                     className="bg-white text-gray-800 placeholder-gray-400 px-5 py-3 rounded-md w-64 outline-none text-sm"
                 />
                 <button onClick={() => handleUpdatePost(data)}
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-md uppercase tracking-wide text-sm transition-colors cursor-pointer">
+                    className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-md uppercase tracking-wide text-sm transition-colors cursor-pointer">
                     EDIT </button>
                 <button
                     type="submit"
