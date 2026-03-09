@@ -42,6 +42,8 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
         addPostData()
     }
 
+    let isEmpty = Object.keys(editData).length === 0
+
 
 
     return (
@@ -64,14 +66,15 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
                     placeholder="Add Post"
                     className="bg-white text-gray-800 placeholder-gray-400 px-5 py-3 rounded-md w-64 outline-none text-sm"
                 />
-                <button onClick={() => handleUpdatePost(data)}
+                {/* <button onClick={() => handleUpdatePost(data)}
                     className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-md uppercase tracking-wide text-sm transition-colors cursor-pointer">
-                    EDIT </button>
+                    EDIT </button> */}
                 <button
                     type="submit"
+                    value={isEmpty ? "ADD" : "Edit"}
                     className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-md uppercase tracking-wide text-sm transition-colors cursor-pointer"
                 >
-                    ADD
+                    {isEmpty ? "ADD" : "Edit"}
                 </button>
             </form>
         </div>
