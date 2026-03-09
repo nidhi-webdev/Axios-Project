@@ -18,3 +18,8 @@ export const deleteApi = (id) => {
 export const postApi = (FrontendData) => {
   return api.post("/posts", FrontendData)
 }
+
+// Update Method
+export const updateApi = (id, post) => {
+  return api.put(`/posts/${id}`, post)
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { postApi } from "../api/Crud"
+import { postApi, updateApi } from "../api/Crud"
 
 const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
 
@@ -31,10 +31,14 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
 
     const addPostData = async () => {
         const res = await postApi(adddata)
-        console.log("res from res", res)
         if (res.status == 201) {
             setTableData([...tableData, res.data])
         }
+    }
+
+    const updatePostData = async () => {
+        const res = await updateApi(editData.id, adddata)
+        console.log("Res", res)
     }
 
     const handleFormSubmit = (e) => {
@@ -42,13 +46,14 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
         const action = e.nativeEvent.submitter.value
         if (action === "ADD") {
             addPostData()
-        } else if(action === "EDIT") {
+        } else if (action === "EDIT") {
             updatePostData()
         }
 
     }
 
-    let isEmpty = Object.keys(editData).length === 0
+    // editData is null on page load, so check for null first
+    const isEmpty = !editData
 
 
 
@@ -77,10 +82,10 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
                     EDIT </button> */}
                 <button
                     type="submit"
-                    value={isEmpty ? "ADD" : "Edit"}
+                    value={isEmpty ? "ADD" : "EDIT"}
                     className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-md uppercase tracking-wide text-sm transition-colors cursor-pointer"
                 >
-                    {isEmpty ? "ADD" : "Edit"}
+                    {isEmpty ? "ADD" : "EDIT"}
                 </button>
             </form>
         </div>
