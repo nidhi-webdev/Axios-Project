@@ -1,11 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { postApi } from "../api/Crud"
 
-const Form = ({ tableData, setTableData, data }) => {
+const Form = ({ tableData, setTableData, data , setEditData, editData}) => {
+
+    console.log("From EditData",editData )
+    console.log("From setEditData",setEditData )
     const [adddata, setAddData] = useState({
         title: "",
         body: ""
     })
+
+    // useeffect for update the input
+    useEffect(() => {
+
+    }, [])
 
     const handleInputChange = (e) => {
         const name = e.target.name

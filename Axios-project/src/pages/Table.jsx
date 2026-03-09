@@ -32,13 +32,18 @@ export const Table = () => {
     }, [])
 
     // Update Data 
-    const handleUpdate = () => {
+    const handleUpdate = (curelem) => setEditData(curelem)
 
-    }
+
 
     return (
         <div className="min-h-screen bg-gray-900">
-            <Form tableData={tableData} setTableData={setTableData} />
+            <Form 
+            tableData={tableData} 
+            setTableData={setTableData} 
+            editData={editData} 
+            setEditData={setEditData} />
+            
             <div className="px-10 pb-10">
                 <div className="grid grid-cols-3 gap-6">
                     {tableData.map((curelem) => (
