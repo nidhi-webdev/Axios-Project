@@ -5,6 +5,7 @@ import Form from "../components/Form"
 
 export const Table = () => {
     const [tableData, setTableData] = useState([])
+    const [editData, setEditData] = useState(null)
 
     const getCurdapi = async () => {
         const res = await getApi()
@@ -32,11 +33,11 @@ export const Table = () => {
 
     return (
         <div className="min-h-screen bg-gray-900">
-            <Form  tableData={tableData} setTableData={setTableData}  />
+            <Form tableData={tableData} setTableData={setTableData} editData={editData} setEditData={setEditData} />
             <div className="px-10 pb-10">
                 <div className="grid grid-cols-3 gap-6">
                     {tableData.map((curelem) => (
-                        <TableCard key={curelem.id} data={curelem} handleDelete={handleDelete} />
+                        <TableCard key={curelem.id} curelem={curelem} handleDelete={handleDelete} setEditData={setEditData} />
                     ))}
                 </div>
             </div>

@@ -1,5 +1,6 @@
-export const TableCard = ({ data, handleDelete }) => {
-    const { body, id, title } = data
+
+export const TableCard = ({ curelem, handleDelete, setEditData }) => {
+    const { body, id, title } = curelem
 
     return (
         <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex flex-col gap-3 border border-gray-700">
@@ -11,7 +12,8 @@ export const TableCard = ({ data, handleDelete }) => {
                 News: {body}
             </p>
             <div className="flex gap-3 mt-auto pt-2">
-                <button className="bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2 rounded-md transition-colors font-semibold uppercase tracking-wide text-sm">
+                <button onClick={() => setEditData(curelem)}
+                    className="bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2 rounded-md transition-colors font-semibold uppercase tracking-wide text-sm cursor-pointer">
                     EDIT
                 </button>
                 <button onClick={() => handleDelete(id)}

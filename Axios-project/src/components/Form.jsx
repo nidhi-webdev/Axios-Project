@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { postApi } from "../api/Crud"
 
-const Form = ({ tableData, setTableData }) => {
+const Form = ({ tableData, setTableData, data }) => {
     const [adddata, setAddData] = useState({
         title: "",
         body: ""
