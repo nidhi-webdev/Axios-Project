@@ -39,7 +39,13 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        addPostData()
+        const action = e.nativeEvent.submitter.value
+        if (action === "ADD") {
+            addPostData()
+        } else if(action === "EDIT") {
+            updatePostData()
+        }
+
     }
 
     let isEmpty = Object.keys(editData).length === 0
