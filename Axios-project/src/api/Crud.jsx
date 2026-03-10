@@ -6,7 +6,7 @@ const api = axios.create({
 
 // get Method
 export const getApi = () => {
-    return api.get("/posts")
+  return api.get("/posts")
 }
 
 // delete Method

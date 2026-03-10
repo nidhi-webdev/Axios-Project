@@ -39,6 +39,19 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
     }
 
     const updatePostData = async () => {
+        // JSONPlaceholder only has real posts 1-100
+        // Posts added by us (id > 100) can't be updated on the server, so update UI directly
+        if (editData.id > 100) {
+            setTableData((prev) =>
+                prev.map((curElem) =>
+                    curElem.id === editData.id ? { ...curElem, ...adddata } : curElem
+                )
+            )
+            setAddData({ title: "", body: "" })
+            setEditData({})
+            return
+        }
+
         try {
             const res = await updateApi(editData.id, adddata)
             console.log("Res", res)
