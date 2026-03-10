@@ -33,7 +33,8 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
         const res = await postApi(adddata)
         if (res.status == 201) {
             setTableData([...tableData, res.data])
-            setEditData({ title: "", body: "" })
+            setAddData({ title: "", body: "" })
+            setEditData(null)
         }
     }
 
