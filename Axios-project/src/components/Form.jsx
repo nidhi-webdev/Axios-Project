@@ -44,7 +44,7 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
             if (res.status === 200) {
                 setTableData((prev) => {
                     return prev.map((curElem) => {
-                        return curElem.id === editData.id ? res.data : curElem
+                        return curElem.id === res.data.id ? res.data : curElem
                     })
                 })
             }
