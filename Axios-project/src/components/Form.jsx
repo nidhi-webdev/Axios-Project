@@ -41,12 +41,15 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
         try {
             const res = await updateApi(editData.id, adddata)
             console.log("Res", res)
-            setTableData((prev) => {
-                return prev.map((curElem) => {
-                    return curElem.id === editData.id ? res.data : curElem
-                } )
-            })
-        } catch (error) {
+            if (res.status === 200) {
+                setTableData((prev) => {
+                    return prev.map((curElem) => {
+                        return curElem.id === editData.id ? res.data : curElem
+                    })
+                })
+            }
+        }
+        catch (error) {
             console.log(error)
         }
     }
