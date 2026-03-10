@@ -48,6 +48,7 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
                     })
                 })
             }
+            setAddData({ title: "", body: "" })
         }
         catch (error) {
             console.log(error)
