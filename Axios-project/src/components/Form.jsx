@@ -33,12 +33,22 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
         const res = await postApi(adddata)
         if (res.status == 201) {
             setTableData([...tableData, res.data])
+            setEditData({ title: "", body: "" })
         }
     }
 
     const updatePostData = async () => {
-        const res = await updateApi(editData.id, adddata)
-        console.log("Res", res)
+        try {
+            const res = await updateApi(editData.id, adddata)
+            console.log("Res", res)
+            setTableData((prev) => {
+                return prev.map((curElem) => {
+                    return curElem.id === editData.id ? res.data : curElem
+                } )
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const handleFormSubmit = (e) => {
