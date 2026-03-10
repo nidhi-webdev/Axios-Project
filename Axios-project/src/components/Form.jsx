@@ -49,6 +49,7 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
                 })
             }
             setAddData({ title: "", body: "" })
+            setEditData({})
         }
         catch (error) {
             console.log(error)
@@ -66,8 +67,8 @@ const Form = ({ tableData, setTableData, data, setEditData, editData }) => {
 
     }
 
-    // editData is null on page load, so check for null first
-    const isEmpty = !editData
+    // true when editData is null OR an empty object {}
+    const isEmpty = !editData || Object.keys(editData).length === 0
 
 
 
